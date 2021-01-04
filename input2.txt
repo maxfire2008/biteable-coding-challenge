@@ -1,0 +1,17 @@
+ITEM,ID,PARENT
+Mercury,18,1
+Proxima Centauri,23,16
+Venus,17,1
+Terra,42,1
+Milky Way,16,nil
+Pluto,14,1
+Proxima Centauri c,98,23
+Mountains,77,42
+Mountains,79,97
+Jupiter,78,1
+Proxima Centauri b,99,23
+Saturn,10,1
+Sol,1,16
+Uranus,15,1
+Luna,24,42
+Mars,97,1
