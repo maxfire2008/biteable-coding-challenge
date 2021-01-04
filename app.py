@@ -1,7 +1,8 @@
 from flask import Flask
 from pprint import pprint
+import os
 import csv
-app = Flask(__name__)        
+app = Flask(__name__)
 
 def import_file(text):
     output = []
@@ -48,6 +49,7 @@ def format_children(data,children,indent_length=0):
         if child[list(child)[0]] != []:
             lines+=['<li><span class="caret">'+get_item(data,list(child)[0])[1]+'</span><ul class="nested">']
             lines+=format_children(data,child[list(child)[0]],indent_length+1)
+            lines+=['</ul></li>']
         else:
             lines+=['<li>'+get_item(data,list(child)[0])[1]+'</li>']
     return lines
@@ -66,7 +68,7 @@ def get_lines(text):
 
 @app.route("/")
 def index():
-    file_content = open("input2.txt").read()
+    file_content = open(os.environ.get("LISTFILE","input2.txt")).read()
     return '<!DOCTYPE html><head><title>Biteable Coding Challenge</title><meta name="viewport" content="width=device-width, initial-scale=1.0"></head><body>'+'<ul id="myUL">'+get_lines(file_content)+'''</ul><style>/* Remove default bullets */
 ul, #myUL {
   list-style-type: none;
@@ -87,9 +89,9 @@ ul, #myUL {
 /* Create the caret/arrow with a unicode, and style it */
 .caret::before {
   content: "\\25B6";
-  color: black;
+  color: #fcba03;
   display: inline-block;
-  margin-right: 6px;
+  margin-right: 1vw;
 }
 
 /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
