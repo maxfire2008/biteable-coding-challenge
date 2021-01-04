@@ -51,7 +51,7 @@ def format_children(data,children,indent_length=0):
             lines+=format_children(data,child[list(child)[0]],indent_length+1)
             lines+=['</ul></li>']
         else:
-            lines+=['<li>'+get_item(data,list(child)[0])[1]+'</li>']
+            lines+=['<li style="margin-left:4vw;">'+get_item(data,list(child)[0])[1]+'</li>']
     return lines
 ##    print(current_item[1])
 
@@ -91,7 +91,7 @@ ul, #myUL {
   content: "\\25B6";
   color: #fcba03;
   display: inline-block;
-  margin-right: 1vw;
+  margin-right: 3vw;
 }
 
 /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
